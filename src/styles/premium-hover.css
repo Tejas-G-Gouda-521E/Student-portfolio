@@ -1,0 +1,56 @@
+:root {
+  --hover-accent: #cf4542;
+  --hover-accent-soft: #e06a62;
+  --hover-transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-interactive {
+  transition: color var(--hover-transition);
+  will-change: color;
+}
+
+.hover-interactive.is-hover-active {
+  color: var(--hover-accent) !important;
+}
+
+.hover-interactive.is-hover-active svg {
+  color: var(--hover-accent);
+  transition: color var(--hover-transition);
+}
+
+.hover-interactive .hover-char {
+  display: inline-block;
+  transition:
+    transform 140ms cubic-bezier(0.4, 0, 0.2, 1),
+    color var(--hover-transition);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.hover-interactive.is-hover-active .hover-char {
+  color: inherit;
+}
+
+.hover-interactive--icon {
+  transition:
+    color var(--hover-transition),
+    border-color var(--hover-transition),
+    background-color var(--hover-transition);
+}
+
+.hover-interactive--icon.is-hover-active {
+  color: var(--hover-accent) !important;
+  border-color: rgba(207, 69, 66, 0.35) !important;
+}
+
+.hover-interactive--solid.is-hover-active {
+  color: var(--hover-accent) !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hover-interactive,
+  .hover-interactive .hover-char,
+  .hover-interactive--icon {
+    transition-duration: 0.01ms !important;
+  }
+}
